@@ -1,0 +1,43 @@
+DROP DATABASE IF EXISTS yugioh_db_cards;
+CREATE DATABASE yugioh_db_cards;
+USE yugioh_db_cards;
+
+CREATE TABLE cards (
+    id INT NOT NULL,
+    name VARCHAR(255) NOT NULL,
+    type VARCHAR(255) NOT NULL,
+	frameType VARCHAR(255) NOT NULL,
+    description TEXT DEFAULT NULL,
+    atk INT NOT NULL DEFAULT 0,
+    def INT NOT NULL DEFAULT 0,
+    level INT NOT NULL DEFAULT 0,
+    race VARCHAR(255) DEFAULT NULL,
+    attribute VARCHAR(255) DEFAULT NULL,
+	archetype VARCHAR(255) DEFAULT NULL,
+    linkval INT NOT NULL DEFAULT 0,
+	scale INT NOT NULL DEFAULT 0,
+	tcgDate DATE DEFAULT NULL,
+	ocgDate DATE DEFAULT NULL,
+	konamiId  VARCHAR(255) NOT NULL,
+    totalViews INT NOT NULL DEFAULT 0,
+	viewsWeek INT NOT NULL DEFAULT 0,
+    imageUrl VARCHAR(255) NOT NULL,
+	hasEffect INT NOT NULL DEFAULT 0,
+    PRIMARY KEY(id)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+CREATE TABLE cards_sets (
+    id INT NOT NULL AUTO_INCREMENT,
+	cardId INT DEFAULT NULL,
+	setCode VARCHAR(45) DEFAULT NULL,
+	setRarity VARCHAR(45) DEFAULT NULL,
+	setPrice DOUBLE DEFAULT 0.0,
+    KEY cards_sets_fk_cards(cardId),
+    CONSTRAINT cards_sets_fk_cards FOREIGN KEY (cardId) REFERENCES cards(id),
+    PRIMARY KEY(id)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+
+
+
+
