@@ -1,6 +1,6 @@
 # Yugioh-DataBase
 I have created a comprehensive YuGiOh database using Java and MySQL.
-- First, create the two tables using the file 'yugi_db_cards.sql'
+- First, create the two tables using the file 'yugioh_db_cards.sql'
 - Then, use the Java code to fetch data, such as images and other information.
 <h1>Card-Table</h1>
 
